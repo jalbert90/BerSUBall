@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-	int n, m;
+	int n, m, pairs = 0;
 
 	vector<int> a, b;
 
@@ -25,5 +25,19 @@ int main() {
 		b.push_back(input);
 	}
 
+	vector<int>::iterator it;
 
+	for (int i = 0; i < n; i++) {
+		for (int j = -1; j <= 1; j++) {
+			it = find(b.begin(), b.end(), a[i] + j);
+
+			if (it != b.end()) {
+				pairs++;
+				b.erase(it);
+				break;
+			}
+		}
+	}
+
+	cout << pairs;
 }
