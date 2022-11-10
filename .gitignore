@@ -3,3 +3,12 @@
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+*.exe
+*.exe.*
+*.ilk
+*.log
+*.obj
+*.pdb
+*.vcxproj.*
+*.idb
+*.tlog
