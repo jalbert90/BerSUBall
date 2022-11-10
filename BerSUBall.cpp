@@ -25,22 +25,26 @@ int main() {
 		b.push_back(input);
 	}
 
+	sort(a.begin(), a.end());
+	sort(b.begin(), b.end());
+
 	vector<int>::iterator it;
-	int pos;
+	int pos, d;
 
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < 3; j++) {
-			if (j == 0) pos = 0;
-			else if (j == 1) pos = -1;
-			else pos = 1;
+		it = b.begin();
 
-			it = find(b.begin(), b.end(), a[i] + pos);
+		while (it != b.end()) {
+			pos = it - b.begin();
+			d = abs(a[i] - b[pos]);
 
-			if (it != b.end()) {
+			if (d <= 1) {
 				pairs++;
 				b.erase(it);
 				break;
 			}
+
+			it++;
 		}
 	}
 
